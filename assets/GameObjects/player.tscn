@@ -19,18 +19,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpqup"]
-radius = 8.0
+radius = 6.0
+height = 18.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1660304152]
 script = ExtResource("1_84ryv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1060473008]
-position = Vector2(0, -17.000002)
-scale = Vector2(0.1484375, 0.2578125)
+position = Vector2(0, -12.9326935)
+scale = Vector2(0.10156251, 0.18855168)
 sprite_frames = SubResource("SpriteFrames_biivv")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1300604193]
-position = Vector2(0, -16)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_xpqup")
