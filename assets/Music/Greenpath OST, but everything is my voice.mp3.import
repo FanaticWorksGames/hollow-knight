@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cx0vh3ox4ksug"
+path="res://.godot/imported/Greenpath OST, but everything is my voice.mp3-ebae3799c5f39b315635205d05fcdc10.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Greenpath OST, but everything is my voice.mp3"
+dest_files=["res://.godot/imported/Greenpath OST, but everything is my voice.mp3-ebae3799c5f39b315635205d05fcdc10.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

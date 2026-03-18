@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dckgnnhbevn5d"]
+
+[ext_resource type="AudioStream" uid="uid://cx0vh3ox4ksug" path="res://assets/Music/Greenpath OST, but everything is my voice.mp3" id="1_4p776"]
+[ext_resource type="PackedScene" uid="uid://yohsy0mu32xx" path="res://assets/GameObjects/player.tscn" id="2_d7j2g"]
+
+[node name="Main" type="Node2D" unique_id=1024514522]
+
+[node name="Main Music" type="AudioStreamPlayer" parent="." unique_id=938228552]
+stream = ExtResource("1_4p776")
+autoplay = true
+
+[node name="Player" parent="." unique_id=1660304152 instance=ExtResource("2_d7j2g")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1226393808]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
