@@ -15,6 +15,10 @@ run/main_scene="uid://dckgnnhbevn5d"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/Sprites/icon.svg"
 
+[display]
+
+window/size/mode=2
+
 [file_customization]
 
 folder_colors={
@@ -63,4 +67,5 @@ ui_attack={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

@@ -1,0 +1,1 @@
+class_name BichoDelimiter extends Area2D

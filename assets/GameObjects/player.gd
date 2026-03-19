@@ -1,5 +1,4 @@
-extends CharacterBody2D
-
+class_name Player extends CharacterBody2D
 
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -200.0
@@ -23,3 +22,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func kill():
+	print_debug("You ded :(")
+	var x_position: float = -110.0
+	var y_position: float = -2.0
+	
+	position = Vector2(x_position, y_position)

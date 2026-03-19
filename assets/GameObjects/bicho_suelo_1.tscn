@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bhry3q3l5w57w"]
+
+[ext_resource type="Script" uid="uid://ohx623xma6cb" path="res://assets/GameObjects/bicho_suelo_1.gd" id="1_0xmha"]
+[ext_resource type="Texture2D" uid="uid://d0dv5u7pqt68x" path="res://assets/Sprites/bichos/bicho_suelo_1.png" id="1_eyvc3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gp23"]
+radius = 5.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xmha"]
+radius = 6.0
+height = 26.0
+
+[node name="Bicho Suelo 1" type="CharacterBody2D" unique_id=935425975]
+script = ExtResource("1_0xmha")
+speed = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1091071180]
+position = Vector2(0, -10)
+texture = ExtResource("1_eyvc3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=721774237]
+position = Vector2(1, -5)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_4gp23")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1148539072]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1155253274]
+position = Vector2(1, -6)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0xmha")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
