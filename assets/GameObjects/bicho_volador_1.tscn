@@ -40,6 +40,8 @@ height = 106.0
 
 [node name="Bicho Volador 1" type="CharacterBody2D" unique_id=1888845689]
 scale = Vector2(0.2, 0.2)
+collision_layer = 4
+collision_mask = 17
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2068040727]
 sprite_frames = SubResource("SpriteFrames_5aw7n")
