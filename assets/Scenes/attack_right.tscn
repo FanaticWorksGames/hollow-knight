@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bfp3eugthmg5o"]
+
+[ext_resource type="Texture2D" uid="uid://c5mawu0qib7o0" path="res://assets/Sprites/attacks.png" id="1_e1fga"]
+[ext_resource type="AudioStream" uid="uid://c5cbqvblc5qe5" path="res://assets/SFX/attack_sound.mp3" id="2_th0fu"]
+
+[sub_resource type="GDScript" id="GDScript_wlqp6"]
+script/source = "extends Timer
+
+func _on_timeout() -> void:
+	get_parent().queue_free()
+"
+
+[node name="AttackRight" type="Marker2D" unique_id=1970116816]
+scale = Vector2(0.15, 0.15)
+gizmo_extents = 27.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1907452460]
+position = Vector2(60, -10)
+texture = ExtResource("1_e1fga")
+offset = Vector2(14.83, 0)
+region_enabled = true
+region_rect = Rect2(359, 13, 302, 178)
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1412580181]
+collision_layer = 2
+collision_mask = 20
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D" unique_id=1118454175]
+polygon = PackedVector2Array(-130, -43.333332, -83.333336, -50, -36.66667, -50, 29.999996, -43.333332, 70, -30, 90, -16.666666, 96.66666, 3.3333335, 96.66666, 23.333332, 83.33333, 36.666664, 63.333324, 50, 29.999996, 63.333332, -23.333338, 90, 43.333324, 83.33333, 96.66666, 76.666664, 143.33333, 50, 163.33333, 16.666666, 163.33333, -30, 123.33333, -70, 76.66666, -83.33333, 9.999996, -83.33333, -50.000004, -76.666664, -90, -63.33333)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="Sprite2D" unique_id=428336971]
+stream = ExtResource("2_th0fu")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1917084237]
+wait_time = 0.2
+autostart = true
+script = SubResource("GDScript_wlqp6")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

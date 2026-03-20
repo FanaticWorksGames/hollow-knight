@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://vc68yhltylc4"]
+
+[ext_resource type="Texture2D" uid="uid://c5mawu0qib7o0" path="res://assets/Sprites/attacks.png" id="1_k3xa2"]
+[ext_resource type="AudioStream" uid="uid://c5cbqvblc5qe5" path="res://assets/SFX/attack_sound.mp3" id="2_wlqp6"]
+
+[sub_resource type="GDScript" id="GDScript_wlqp6"]
+script/source = "extends Timer
+
+func _on_timeout() -> void:
+	get_parent().queue_free()
+"
+
+[node name="AttackLeft" type="Marker2D" unique_id=1970116816]
+scale = Vector2(0.15, 0.15)
+gizmo_extents = 27.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1907452460]
+position = Vector2(-60, -10)
+texture = ExtResource("1_k3xa2")
+offset = Vector2(14.83, 0)
+region_enabled = true
+region_rect = Rect2(17, 15, 303, 178)
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1412580181]
+collision_layer = 2
+collision_mask = 20
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D" unique_id=1757096918]
+visible = false
+polygon = PackedVector2Array(166, -44, 70, -79, 2, -89, -70, -82, -105, -66, -137, -17, -135, 18, -116, 49, -70, 74, -21, 86, 52, 89, -12, 60, -60, 32, -69, 8, -62, -18, -33, -38, 29, -49, 99, -52)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="Sprite2D" unique_id=428336971]
+stream = ExtResource("2_wlqp6")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1917084237]
+wait_time = 0.2
+autostart = true
+script = SubResource("GDScript_wlqp6")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

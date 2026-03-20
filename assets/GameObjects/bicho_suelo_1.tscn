@@ -36,6 +36,7 @@ radius = 6.0
 height = 26.0
 
 [node name="Bicho Suelo 1" type="CharacterBody2D" unique_id=935425975]
+collision_layer = 4
 script = ExtResource("1_0xmha")
 speed = 0.5
 
@@ -51,6 +52,7 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_4gp23")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1148539072]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1155253274]
 position = Vector2(1, -6)
