@@ -17,7 +17,7 @@ var knockback_force: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockback_duration: float = 0.1
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	# Attack
 	if Input.is_action_just_pressed("ui_attack"):
 		# DOWN (POGO)
