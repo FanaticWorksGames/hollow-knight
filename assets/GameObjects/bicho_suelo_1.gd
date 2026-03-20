@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 0.4
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var direction: String = 'left'
 
@@ -31,7 +31,7 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 	
 	if direction == 'left':
 		direction = 'right'
-		sprite_2d.flip_h = true
+		animated_sprite_2d.flip_h = true
 	else:
 		direction = 'left'
-		sprite_2d.flip_h = false
+		animated_sprite_2d.flip_h = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0dv5u7pqt68x"
-path="res://.godot/imported/bicho_suelo_1.png-c676835fa30e0cc2c6b0807d14ccecc7.ctex"
+uid="uid://cmffewl10e5hb"
+path="res://.godot/imported/bicho_walk_0000.png-3e271015a836ada643e3e27571d333ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/bichos/bicho_suelo_1.png"
-dest_files=["res://.godot/imported/bicho_suelo_1.png-c676835fa30e0cc2c6b0807d14ccecc7.ctex"]
+source_file="res://assets/Sprites/bichos/bicho_walk_0000.png"
+dest_files=["res://.godot/imported/bicho_walk_0000.png-3e271015a836ada643e3e27571d333ba.ctex"]
 
 [params]
 
