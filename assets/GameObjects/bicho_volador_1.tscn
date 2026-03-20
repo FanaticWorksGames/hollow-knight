@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dh0m5qf4bw4cu"]
+
+[ext_resource type="Texture2D" uid="uid://c4481jg3oeylm" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0000.png" id="1_tni6t"]
+[ext_resource type="Texture2D" uid="uid://le0mxmlxn2lv" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0001.png" id="2_sg2oh"]
+[ext_resource type="Texture2D" uid="uid://bd5pf28sct1n1" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0002.png" id="3_u5spg"]
+[ext_resource type="Texture2D" uid="uid://cw4gi8x24wmed" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0003.png" id="4_dmab0"]
+[ext_resource type="Texture2D" uid="uid://33fjqmeftwqd" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0004.png" id="5_ob4au"]
+[ext_resource type="Texture2D" uid="uid://dkctjuo16ohxb" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0005.png" id="6_8vjxh"]
+[ext_resource type="AudioStream" uid="uid://cxf38ugyoo53w" path="res://assets/SFX/bicho_volador_1_fly.mp3" id="7_sg2oh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5aw7n"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("1_tni6t")
+}, {
+"duration": 0.2,
+"texture": ExtResource("2_sg2oh")
+}, {
+"duration": 0.2,
+"texture": ExtResource("3_u5spg")
+}, {
+"duration": 0.2,
+"texture": ExtResource("4_dmab0")
+}, {
+"duration": 0.2,
+"texture": ExtResource("5_ob4au")
+}, {
+"duration": 0.2,
+"texture": ExtResource("6_8vjxh")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tni6t"]
+radius = 30.0
+height = 106.0
+
+[node name="Bicho Volador 1" type="CharacterBody2D" unique_id=1888845689]
+scale = Vector2(0.2, 0.2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2068040727]
+sprite_frames = SubResource("SpriteFrames_5aw7n")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.490287
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1113476944]
+position = Vector2(-10, 5)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_tni6t")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1504000346]
+stream = ExtResource("7_sg2oh")
+autoplay = true
+max_distance = 450.0
+attenuation = 2.46
+bus = &"Monsters movement"
+parameters/looping = true

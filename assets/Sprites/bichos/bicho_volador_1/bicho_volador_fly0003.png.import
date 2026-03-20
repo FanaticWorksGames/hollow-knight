@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5psugv53d7lf"
-path="res://.godot/imported/bicho_walk_0001.png-452dcde40b9beff5c5eb601c529eae36.ctex"
+uid="uid://cw4gi8x24wmed"
+path="res://.godot/imported/bicho_volador_fly0003.png-afda84b1de7b3d4a3c9de16cb647a0c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/bichos/bicho_walk_0001.png"
-dest_files=["res://.godot/imported/bicho_walk_0001.png-452dcde40b9beff5c5eb601c529eae36.ctex"]
+source_file="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0003.png"
+dest_files=["res://.godot/imported/bicho_volador_fly0003.png-afda84b1de7b3d4a3c9de16cb647a0c9.ctex"]
 
 [params]
 

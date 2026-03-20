@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bhry3q3l5w57w"]
 
 [ext_resource type="Script" uid="uid://ohx623xma6cb" path="res://assets/GameObjects/bicho_suelo_1.gd" id="1_0xmha"]
-[ext_resource type="Texture2D" uid="uid://cmffewl10e5hb" path="res://assets/Sprites/bichos/bicho_walk_0000.png" id="2_lotsk"]
+[ext_resource type="Texture2D" uid="uid://cmffewl10e5hb" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0000.png" id="2_lotsk"]
 [ext_resource type="AudioStream" uid="uid://qabnfohe6f6r" path="res://assets/SFX/bicho_suelo_1_walk.mp3" id="3_4gp23"]
-[ext_resource type="Texture2D" uid="uid://5psugv53d7lf" path="res://assets/Sprites/bichos/bicho_walk_0001.png" id="3_230eo"]
-[ext_resource type="Texture2D" uid="uid://c35qo5bycog22" path="res://assets/Sprites/bichos/bicho_walk_0002.png" id="4_0liax"]
-[ext_resource type="Texture2D" uid="uid://drwny8xxljkbw" path="res://assets/Sprites/bichos/bicho_walk_0003.png" id="5_go3le"]
+[ext_resource type="Texture2D" uid="uid://5psugv53d7lf" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0001.png" id="3_230eo"]
+[ext_resource type="Texture2D" uid="uid://c35qo5bycog22" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0002.png" id="4_0liax"]
+[ext_resource type="Texture2D" uid="uid://drwny8xxljkbw" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0003.png" id="5_go3le"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_txx7a"]
 animations = [{
@@ -64,6 +64,7 @@ stream = ExtResource("3_4gp23")
 autoplay = true
 max_distance = 500.0
 attenuation = 2.4622905
+bus = &"Monsters movement"
 parameters/looping = true
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

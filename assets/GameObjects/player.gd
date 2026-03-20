@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -200.0
+
 const ATTACK_LEFT = preload("uid://vc68yhltylc4")
 const ATTACK_RIGHT = preload("uid://bfp3eugthmg5o")
 const ATTACK_UP = preload("uid://de7hmjxjkjirs")
