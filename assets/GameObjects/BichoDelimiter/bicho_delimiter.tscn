@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bougej7v6ydtf"]
 
-[ext_resource type="Script" uid="uid://c8q2kyofddxkq" path="res://assets/GameObjects/bicho_delimiter.gd" id="1_7ysmr"]
+[ext_resource type="Script" uid="uid://c8q2kyofddxkq" path="res://assets/GameObjects/BichoDelimiter/bicho_delimiter.gd" id="1_7ysmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7cyj"]
 size = Vector2(3.4, 20)

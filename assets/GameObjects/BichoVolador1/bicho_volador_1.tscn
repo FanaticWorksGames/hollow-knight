@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dh0m5qf4bw4cu"]
 
+[ext_resource type="Script" uid="uid://cswpkvj0p5l0o" path="res://assets/GameObjects/BichoVolador1/bicho_volador_1.gd" id="1_daakn"]
+[ext_resource type="Script" uid="uid://cl0icrgjrssb1" path="res://assets/GameObjects/Controllers/health_controller.gd" id="1_e1aw8"]
 [ext_resource type="Texture2D" uid="uid://c4481jg3oeylm" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0000.png" id="1_tni6t"]
 [ext_resource type="Texture2D" uid="uid://le0mxmlxn2lv" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0001.png" id="2_sg2oh"]
 [ext_resource type="Texture2D" uid="uid://bd5pf28sct1n1" path="res://assets/Sprites/bichos/bicho_volador_1/bicho_volador_fly0002.png" id="3_u5spg"]
@@ -42,6 +44,11 @@ height = 106.0
 scale = Vector2(0.2, 0.2)
 collision_layer = 4
 collision_mask = 17
+script = ExtResource("1_daakn")
+
+[node name="HealthController" type="Node" parent="." unique_id=379261352]
+script = ExtResource("1_e1aw8")
+metadata/_custom_type_script = "uid://cl0icrgjrssb1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2068040727]
 sprite_frames = SubResource("SpriteFrames_5aw7n")

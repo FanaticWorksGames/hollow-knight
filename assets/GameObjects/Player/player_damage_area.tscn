@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://euwd24ml2swn"]
+
+[ext_resource type="Script" uid="uid://dxudv72u1vgr4" path="res://assets/GameObjects/Player/player_damage_area.gd" id="1_bk6sb"]
+
+[node name="PlayerDamageArea" type="Area2D" unique_id=355654562]
+collision_layer = 2
+collision_mask = 20
+script = ExtResource("1_bk6sb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

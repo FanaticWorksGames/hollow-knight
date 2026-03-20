@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yohsy0mu32xx"]
 
-[ext_resource type="Script" uid="uid://ceoghab0ncrsv" path="res://assets/GameObjects/player.gd" id="1_84ryv"]
+[ext_resource type="Script" uid="uid://ceoghab0ncrsv" path="res://assets/GameObjects/Player/player.gd" id="1_84ryv"]
 [ext_resource type="Texture2D" uid="uid://cbjukl5mee370" path="res://assets/Sprites/icon.svg" id="1_er7oi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84ryv"]

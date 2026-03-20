@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 @export var speed = 0.4
-@export var max_health = 12
-@export var health = max_health
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_controller: HealthController = $HealthController
 
 var direction: String = 'left'
 
@@ -37,9 +36,3 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 	else:
 		direction = 'left'
 		animated_sprite_2d.flip_h = false
-
-func recieve_damage(damage: int):
-	health -= damage
-	prints("Bicho", health)
-	if health <= 0:
-		queue_free()

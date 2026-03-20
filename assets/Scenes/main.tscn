@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://dckgnnhbevn5d"]
 
 [ext_resource type="AudioStream" uid="uid://cx0vh3ox4ksug" path="res://assets/Music/Greenpath OST, but everything is my voice.mp3" id="1_4p776"]
-[ext_resource type="PackedScene" uid="uid://yohsy0mu32xx" path="res://assets/GameObjects/player.tscn" id="2_d7j2g"]
+[ext_resource type="PackedScene" uid="uid://yohsy0mu32xx" path="res://assets/GameObjects/Player/player.tscn" id="2_d7j2g"]
 [ext_resource type="Texture2D" uid="uid://cbjukl5mee370" path="res://assets/Sprites/icon.svg" id="3_d7j2g"]
-[ext_resource type="PackedScene" uid="uid://bhry3q3l5w57w" path="res://assets/GameObjects/bicho_suelo_1.tscn" id="4_dwccm"]
-[ext_resource type="PackedScene" uid="uid://bougej7v6ydtf" path="res://assets/GameObjects/bicho_delimiter.tscn" id="5_w34p4"]
-[ext_resource type="PackedScene" uid="uid://dh0m5qf4bw4cu" path="res://assets/GameObjects/bicho_volador_1.tscn" id="6_rbwhl"]
+[ext_resource type="PackedScene" uid="uid://bhry3q3l5w57w" path="res://assets/GameObjects/BichoSuelo1/bicho_suelo_1.tscn" id="4_dwccm"]
+[ext_resource type="PackedScene" uid="uid://bougej7v6ydtf" path="res://assets/GameObjects/BichoDelimiter/bicho_delimiter.tscn" id="5_w34p4"]
+[ext_resource type="PackedScene" uid="uid://dh0m5qf4bw4cu" path="res://assets/GameObjects/BichoVolador1/bicho_volador_1.tscn" id="6_rbwhl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7j2g"]
 texture = ExtResource("3_d7j2g")

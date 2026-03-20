@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://de7hmjxjkjirs"]
 
-[ext_resource type="Texture2D" uid="uid://c5mawu0qib7o0" path="res://assets/Sprites/attacks.png" id="1_rhnqu"]
-[ext_resource type="AudioStream" uid="uid://c5cbqvblc5qe5" path="res://assets/SFX/attack_sound.mp3" id="2_46cab"]
+[ext_resource type="Texture2D" uid="uid://c5mawu0qib7o0" path="res://assets/Sprites/attacks.png" id="1_ibekx"]
+[ext_resource type="PackedScene" uid="uid://euwd24ml2swn" path="res://assets/GameObjects/Player/player_damage_area.tscn" id="2_c77ds"]
+[ext_resource type="AudioStream" uid="uid://c5cbqvblc5qe5" path="res://assets/SFX/attack_sound.mp3" id="3_ei3jv"]
 
 [sub_resource type="GDScript" id="GDScript_wlqp6"]
 script/source = "extends Timer
@@ -10,27 +11,25 @@ func _on_timeout() -> void:
 	get_parent().queue_free()
 "
 
-[node name="AttackPogo" type="Marker2D" unique_id=1970116816]
+[node name="AttackUp" type="Marker2D" unique_id=1970116816]
 scale = Vector2(0.15, 0.15)
 gizmo_extents = 27.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1907452460]
 position = Vector2(-20, -130)
-texture = ExtResource("1_rhnqu")
+texture = ExtResource("1_ibekx")
 offset = Vector2(14.83, 0)
 region_enabled = true
 region_rect = Rect2(295, 274, 149, 173)
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1412580181]
-position = Vector2(20, -6.6666665)
-collision_layer = 2
-collision_mask = 20
+[node name="PlayerDamageArea" parent="Sprite2D" unique_id=355654562 instance=ExtResource("2_c77ds")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D" unique_id=1653275139]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/PlayerDamageArea" unique_id=1653275139]
+position = Vector2(20, -6.6666565)
 polygon = PackedVector2Array(66.666664, 89.99999, 40, 16.666656, 13.333333, -23.333344, 0, -30, -26.666666, -30, -53.333332, -3.3333435, -73.33333, 56.666656, -80, 49.999992, -73.33333, -10, -53.333332, -56.66667, -26.666666, -76.66667, -6.6666665, -76.66667, 6.6666665, -76.66667, 26.666666, -63.333344, 40, -43.333344, 60, -3.3333435, 66.666664, 36.666656)
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="Sprite2D" unique_id=428336971]
-stream = ExtResource("2_46cab")
+stream = ExtResource("3_ei3jv")
 autoplay = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1917084237]

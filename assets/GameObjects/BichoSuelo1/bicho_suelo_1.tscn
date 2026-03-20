@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bhry3q3l5w57w"]
 
-[ext_resource type="Script" uid="uid://ohx623xma6cb" path="res://assets/GameObjects/bicho_suelo_1.gd" id="1_0xmha"]
+[ext_resource type="Script" uid="uid://ohx623xma6cb" path="res://assets/GameObjects/BichoSuelo1/bicho_suelo_1.gd" id="1_0xmha"]
 [ext_resource type="Texture2D" uid="uid://cmffewl10e5hb" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0000.png" id="2_lotsk"]
+[ext_resource type="Script" uid="uid://cl0icrgjrssb1" path="res://assets/GameObjects/Controllers/health_controller.gd" id="2_lryc3"]
 [ext_resource type="AudioStream" uid="uid://qabnfohe6f6r" path="res://assets/SFX/bicho_suelo_1_walk.mp3" id="3_4gp23"]
 [ext_resource type="Texture2D" uid="uid://5psugv53d7lf" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0001.png" id="3_230eo"]
 [ext_resource type="Texture2D" uid="uid://c35qo5bycog22" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0002.png" id="4_0liax"]
@@ -39,6 +40,10 @@ height = 26.0
 collision_layer = 4
 script = ExtResource("1_0xmha")
 speed = 0.5
+
+[node name="HealthController" type="Node" parent="." unique_id=2141164233]
+script = ExtResource("2_lryc3")
+metadata/_custom_type_script = "uid://cl0icrgjrssb1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=47514341]
 position = Vector2(0, -9)
