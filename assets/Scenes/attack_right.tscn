@@ -3,6 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://c5mawu0qib7o0" path="res://assets/Sprites/attacks.png" id="1_e1fga"]
 [ext_resource type="AudioStream" uid="uid://c5cbqvblc5qe5" path="res://assets/SFX/attack_sound.mp3" id="2_th0fu"]
 
+[sub_resource type="GDScript" id="GDScript_e1fga"]
+script/source = "extends Marker2D
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+"
+
 [sub_resource type="GDScript" id="GDScript_wlqp6"]
 script/source = "extends Timer
 
@@ -13,6 +22,7 @@ func _on_timeout() -> void:
 [node name="AttackRight" type="Marker2D" unique_id=1970116816]
 scale = Vector2(0.15, 0.15)
 gizmo_extents = 27.5
+script = SubResource("GDScript_e1fga")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1907452460]
 position = Vector2(60, -10)
@@ -37,4 +47,5 @@ wait_time = 0.2
 autostart = true
 script = SubResource("GDScript_wlqp6")
 
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
