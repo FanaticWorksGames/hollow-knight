@@ -224,7 +224,7 @@ tile_set = SubResource("TileSet_w34p4")
 
 [node name="Main Music" type="AudioStreamPlayer" parent="." unique_id=938228552]
 stream = ExtResource("1_4p776")
-volume_db = -14.984
+volume_db = -20.0
 autoplay = true
 
 [node name="Player" parent="." unique_id=1660304152 instance=ExtResource("2_d7j2g")]
