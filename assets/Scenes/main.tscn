@@ -1,11 +1,14 @@
 [gd_scene format=4 uid="uid://dckgnnhbevn5d"]
 
 [ext_resource type="AudioStream" uid="uid://cx0vh3ox4ksug" path="res://assets/Music/Greenpath OST, but everything is my voice.mp3" id="1_4p776"]
+[ext_resource type="PackedScene" uid="uid://c2sftl8iti3md" path="res://assets/Scenes/hud_lifes.tscn" id="1_naort"]
 [ext_resource type="PackedScene" uid="uid://yohsy0mu32xx" path="res://assets/GameObjects/Player/player.tscn" id="2_d7j2g"]
 [ext_resource type="Texture2D" uid="uid://cbjukl5mee370" path="res://assets/Sprites/icon.svg" id="3_d7j2g"]
 [ext_resource type="PackedScene" uid="uid://bhry3q3l5w57w" path="res://assets/GameObjects/BichoSuelo1/bicho_suelo_1.tscn" id="4_dwccm"]
 [ext_resource type="PackedScene" uid="uid://bougej7v6ydtf" path="res://assets/GameObjects/BichoDelimiter/bicho_delimiter.tscn" id="5_w34p4"]
 [ext_resource type="PackedScene" uid="uid://dh0m5qf4bw4cu" path="res://assets/GameObjects/BichoVolador1/bicho_volador_1.tscn" id="6_rbwhl"]
+[ext_resource type="PackedScene" uid="uid://b3s1sjgvecrea" path="res://assets/GameObjects/Stalectita/stalectita.tscn" id="7_xomjc"]
+[ext_resource type="PackedScene" uid="uid://chmioj8dcfdcb" path="res://assets/GameObjects/Stalectita/stalectita_area.tscn" id="9_ci4bg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7j2g"]
 texture = ExtResource("3_d7j2g")
@@ -213,7 +216,18 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_dwccm")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbung"]
+size = Vector2(61.5, 83.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci4bg"]
+size = Vector2(61.5, 83.5)
+
 [node name="Main" type="Node2D" unique_id=1024514522]
+
+[node name="HUD2" type="CanvasLayer" parent="." unique_id=263832859]
+
+[node name="HudLifes" parent="HUD2" unique_id=55930602 node_paths=PackedStringArray("player") instance=ExtResource("1_naort")]
+player = NodePath("../../Player")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1950828920]
 z_index = 1
@@ -227,9 +241,10 @@ tile_set = SubResource("TileSet_w34p4")
 [node name="Main Music" type="AudioStreamPlayer" parent="." unique_id=938228552]
 stream = ExtResource("1_4p776")
 volume_db = -20.0
+autoplay = true
 
 [node name="Player" parent="." unique_id=1660304152 instance=ExtResource("2_d7j2g")]
-position = Vector2(1064, -182)
+position = Vector2(1026, -238)
 collision_mask = 20
 JUMP_VELOCITY = -350.0
 
@@ -260,14 +275,11 @@ position = Vector2(1167, 73)
 [node name="Bicho Delimiter4" parent="." unique_id=299378119 instance=ExtResource("5_w34p4")]
 position = Vector2(1409, 73)
 
-[node name="Bicho Volador 1" parent="." unique_id=1888845689 instance=ExtResource("6_rbwhl")]
-position = Vector2(1187, -208)
-
 [node name="Bicho Volador 2" parent="." unique_id=1829594544 instance=ExtResource("6_rbwhl")]
-position = Vector2(554, -314)
+position = Vector2(535, -320)
 
 [node name="Bicho Volador 3" parent="." unique_id=1641144855 instance=ExtResource("6_rbwhl")]
-position = Vector2(552, -505)
+position = Vector2(447, -515)
 
 [node name="Bicho Suelo 3" parent="." unique_id=1826370554 instance=ExtResource("4_dwccm")]
 position = Vector2(439, -640)
@@ -277,3 +289,34 @@ position = Vector2(386, -650)
 
 [node name="Bicho Delimiter6" parent="." unique_id=150819412 instance=ExtResource("5_w34p4")]
 position = Vector2(512, -650)
+
+[node name="Stalectita" parent="." unique_id=2046232746 node_paths=PackedStringArray("detection_area") instance=ExtResource("7_xomjc")]
+position = Vector2(979, -389.19)
+detection_area = NodePath("../StalectitaArea")
+
+[node name="StalectitaArea" parent="." unique_id=675574461 instance=ExtResource("9_ci4bg")]
+position = Vector2(978, -331)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StalectitaArea" unique_id=1709886062]
+shape = SubResource("RectangleShape2D_cbung")
+
+[node name="Stalectita2" parent="." unique_id=68880702 node_paths=PackedStringArray("detection_area") instance=ExtResource("7_xomjc")]
+position = Vector2(499, -565)
+detection_area = NodePath("../StalectitaArea2")
+
+[node name="StalectitaArea2" parent="." unique_id=804483595 instance=ExtResource("9_ci4bg")]
+position = Vector2(500, -491)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StalectitaArea2" unique_id=1553969236]
+shape = SubResource("RectangleShape2D_ci4bg")
+
+[node name="Bicho Suelo 4" parent="." unique_id=773783989 instance=ExtResource("4_dwccm")]
+position = Vector2(989, 0)
+
+[node name="Bicho Delimiter7" parent="." unique_id=931582888 instance=ExtResource("5_w34p4")]
+position = Vector2(946, -10)
+
+[node name="Bicho Delimiter8" parent="." unique_id=1772264319 instance=ExtResource("5_w34p4")]
+position = Vector2(1024, -10)
+
+[connection signal="body_entered" from="Stalectita" to="Stalectita" method="_on_body_entered"]

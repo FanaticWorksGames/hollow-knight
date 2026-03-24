@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://5psugv53d7lf" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0001.png" id="3_230eo"]
 [ext_resource type="Texture2D" uid="uid://c35qo5bycog22" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0002.png" id="4_0liax"]
 [ext_resource type="Texture2D" uid="uid://drwny8xxljkbw" path="res://assets/Sprites/bichos/bicho_suelo_1/bicho_walk_0003.png" id="5_go3le"]
+[ext_resource type="Script" uid="uid://cki5bodosmqm2" path="res://assets/GameObjects/DamageArea/damage_area.gd" id="7_wxbfp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_txx7a"]
 animations = [{
@@ -36,6 +37,9 @@ height = 24.0
 radius = 6.0
 height = 26.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxbfp"]
+size = Vector2(3, 10)
+
 [node name="Bicho Suelo 1" type="CharacterBody2D" unique_id=935425975]
 collision_layer = 4
 script = ExtResource("1_0xmha")
@@ -43,6 +47,7 @@ speed = 0.5
 
 [node name="HealthController" type="Node" parent="." unique_id=2141164233]
 script = ExtResource("2_lryc3")
+remove_on_dead = true
 metadata/_custom_type_script = "uid://cl0icrgjrssb1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=47514341]
@@ -56,10 +61,12 @@ position = Vector2(1, -5)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_4gp23")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1148539072]
+[node name="DamageArea" type="Area2D" parent="." unique_id=836753300]
 collision_layer = 4
+script = ExtResource("7_wxbfp")
+metadata/_custom_type_script = "uid://cki5bodosmqm2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1155253274]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1155253274]
 position = Vector2(1, -6)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_0xmha")
@@ -72,5 +79,18 @@ attenuation = 2.4622905
 bus = &"Monsters movement"
 parameters/looping = true
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="DelimiterArea2D" type="Area2D" parent="." unique_id=1440633864]
+position = Vector2(-12, -5)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DelimiterArea2D" unique_id=30064259]
+shape = SubResource("RectangleShape2D_wxbfp")
+
+[node name="DelimiterArea2D2" type="Area2D" parent="." unique_id=126757720]
+position = Vector2(12, -5)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DelimiterArea2D2" unique_id=1691294764]
+shape = SubResource("RectangleShape2D_wxbfp")

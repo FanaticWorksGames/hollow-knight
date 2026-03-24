@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b3s1sjgvecrea"]
+
+[ext_resource type="Script" uid="uid://7qrug0mjbxaw" path="res://assets/GameObjects/Stalectita/stalectita.gd" id="1_3ucab"]
+[ext_resource type="Texture2D" uid="uid://bh1g1f0wn3sbb" path="res://assets/Sprites/Stalectitas/stalectita_1.png" id="1_ap7ir"]
+[ext_resource type="Script" uid="uid://cki5bodosmqm2" path="res://assets/GameObjects/DamageArea/damage_area.gd" id="3_fvvco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap7ir"]
+size = Vector2(6, 19)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxwqc"]
+radius = 2.0
+height = 20.0
+
+[node name="Stalectita" type="RigidBody2D" unique_id=68880702]
+collision_layer = 8
+collision_mask = 16
+freeze = true
+script = ExtResource("1_3ucab")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358400109]
+z_index = -1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_ap7ir")
+region_enabled = true
+region_rect = Rect2(142, 45, 32, 76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272505892]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ap7ir")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=406508992]
+collision_mask = 21
+script = ExtResource("3_fvvco")
+damage = 100
+_disable_on_hit = true
+metadata/_custom_type_script = "uid://cki5bodosmqm2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1562236508]
+shape = SubResource("CapsuleShape2D_rxwqc")

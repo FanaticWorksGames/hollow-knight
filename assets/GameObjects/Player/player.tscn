@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ceoghab0ncrsv" path="res://assets/GameObjects/Player/player.gd" id="1_84ryv"]
 [ext_resource type="Texture2D" uid="uid://cbjukl5mee370" path="res://assets/Sprites/icon.svg" id="1_er7oi"]
+[ext_resource type="Script" uid="uid://cl0icrgjrssb1" path="res://assets/GameObjects/Controllers/health_controller.gd" id="3_4icej"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84ryv"]
 atlas = ExtResource("1_er7oi")
@@ -24,6 +25,11 @@ height = 22.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1660304152]
 script = ExtResource("1_84ryv")
+
+[node name="HealthController" type="Node" parent="." unique_id=727605531]
+script = ExtResource("3_4icej")
+max_health = 3
+metadata/_custom_type_script = "uid://cl0icrgjrssb1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1060473008]
 position = Vector2(0, -0.99999994)

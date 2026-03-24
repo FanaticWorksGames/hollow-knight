@@ -48,6 +48,7 @@ script = ExtResource("1_daakn")
 
 [node name="HealthController" type="Node" parent="." unique_id=379261352]
 script = ExtResource("1_e1aw8")
+remove_on_dead = true
 metadata/_custom_type_script = "uid://cl0icrgjrssb1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2068040727]

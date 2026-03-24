@@ -5,6 +5,8 @@ class_name Player extends CharacterBody2D
 @export var KNOCKBACK_STRENGTH = 100.0
 @export var POGO_STRENGTH = 250.0
 
+@onready var health_controller: HealthController = $HealthController
+
 const ATTACK_LEFT = preload("uid://vc68yhltylc4")
 const ATTACK_RIGHT = preload("uid://bfp3eugthmg5o")
 const ATTACK_UP = preload("uid://de7hmjxjkjirs")
@@ -16,6 +18,10 @@ var last_dir_attacked: Vector2 = Vector2.RIGHT
 var knockback_force: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockback_duration: float = 0.1
+
+func _ready() -> void:
+	health_controller.damage_received.connect(_get_damage)
+	health_controller.died.connect(kill)
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Attack
@@ -70,6 +76,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func _get_damage(_damage: int):
+	prints("Player damaged. Life left: ", health_controller.health)
+	knock_back()
+
 func knock_back():
 	var strength = KNOCKBACK_STRENGTH
 	
@@ -84,3 +94,4 @@ func knock_back():
 func kill():
 	print_debug("You ded :(")
 	position = Vector2(-110.0, -2.0)
+	health_controller.heal_full()

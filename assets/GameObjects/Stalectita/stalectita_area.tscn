@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://chmioj8dcfdcb"]
+
+[node name="StalectitaArea" type="Area2D" unique_id=675574461]
+collision_layer = 0
