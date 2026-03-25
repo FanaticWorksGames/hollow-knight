@@ -31,6 +31,7 @@ polygon = PackedVector2Array(166, -44, 70, -79, 2, -89, -70, -82, -105, -66, -13
 [node name="AttackSound" type="AudioStreamPlayer" parent="Sprite2D" unique_id=428336971]
 stream = ExtResource("3_7peb8")
 autoplay = true
+bus = &"Player Attacks"
 
 [node name="Timer" type="Timer" parent="." unique_id=1917084237]
 wait_time = 0.2

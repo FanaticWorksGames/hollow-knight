@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dafhsdfye8l6t"]
+
+[ext_resource type="Texture2D" uid="uid://obqitvv3jhc1" path="res://assets/Sprites/Geo.png" id="1_dib76"]
+[ext_resource type="AudioStream" uid="uid://bvalyk0qs0dgq" path="res://assets/SFX/geo_hit.mp3" id="2_8h3sq"]
+
+[sub_resource type="GDScript" id="GDScript_8h3sq"]
+script/source = "class_name GeoRock extends Node2D
+
+@export var hits_to_break: int = 3
+@onready var hits_remaining: int = hits_to_break
+@export var geo_amount: int = 15
+@onready var geo_left: int = geo_amount
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+const GEO = preload(\"uid://4v3gvawys33e\")
+
+
+func drop_geo(times: int) -> void:
+	for i in times:
+		var geo = GEO.instantiate() as RigidBody2D
+		get_tree().current_scene.add_child(geo)
+		geo. global_position = global_position
+		geo_left -= 1
+
+func _on_colision_area_area_entered(_area: Area2D) -> void:
+	audio.play()
+	if hits_remaining == 1:
+		call_deferred(\"drop_geo\", geo_left)
+		hide()
+	else:
+		call_deferred(\"drop_geo\", (randi() % 2) + 2)
+	hits_remaining -= 1
+
+func _on_audio_stream_player_2d_finished() -> void:
+	if hits_remaining == 0:
+		queue_free()
+"
+
+[node name="GeoRock" type="Node2D" unique_id=1184801408]
+scale = Vector2(0.3, 0.3)
+script = SubResource("GDScript_8h3sq")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1544227729]
+texture = ExtResource("1_dib76")
+region_enabled = true
+region_rect = Rect2(22, 70, 100, 97)
+
+[node name="ColisionArea" type="Area2D" parent="." unique_id=414669404]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColisionArea" unique_id=956467025]
+polygon = PackedVector2Array(-45, 42, -41, 2, -24, -34, -2, -46, 30, -33, 48, 43)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=965264995]
+stream = ExtResource("2_8h3sq")
+volume_db = 7.736
+bus = &"Object Hits"
+
+[connection signal="area_entered" from="ColisionArea" to="." method="_on_colision_area_area_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

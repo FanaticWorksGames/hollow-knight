@@ -78,6 +78,7 @@ ui_attack={
 2d_physics/layer_4="EnemyAttack"
 2d_physics/layer_5="Wall"
 2d_physics/layer_6="Delimiter"
+2d_physics/layer_7="Geo"
 
 [physics]
 
