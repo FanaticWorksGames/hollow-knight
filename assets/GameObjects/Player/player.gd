@@ -27,7 +27,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	# Attack
 	if Input.is_action_just_pressed("ui_attack"):
 		# DOWN (POGO)
-		if Input.is_action_pressed("ui_down"):
+		if Input.is_action_pressed("ui_down") and not is_on_floor():
 			last_dir_attacked = Vector2.DOWN
 			add_child(ATTACK_POGO.instantiate(), true)
 		
@@ -36,7 +36,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			last_dir_attacked = Vector2.UP
 			add_child(ATTACK_UP.instantiate(), true)
 		
-		# LEFT
+		# LEFTa
 		elif last_dir_looked < 0:
 			last_dir_attacked = Vector2.LEFT
 			add_child(ATTACK_LEFT.instantiate(), true)
@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply knockback once
 	if knockback_force != Vector2.ZERO:
-		velocity = knockback_force
+		velocity.y = knockback_force.y
 		knockback_force = Vector2.ZERO
 	
 	move_and_slide()
