@@ -2,6 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://cx0vh3ox4ksug" path="res://assets/Music/Greenpath OST, but everything is my voice.mp3" id="1_4p776"]
 [ext_resource type="PackedScene" uid="uid://c2sftl8iti3md" path="res://assets/Scenes/hud_lifes.tscn" id="1_naort"]
+[ext_resource type="PackedScene" uid="uid://cp48borfhvmr0" path="res://assets/Scenes/hud_geo.tscn" id="2_0ub6i"]
 [ext_resource type="PackedScene" uid="uid://yohsy0mu32xx" path="res://assets/GameObjects/Player/player.tscn" id="2_d7j2g"]
 [ext_resource type="Texture2D" uid="uid://cbjukl5mee370" path="res://assets/Sprites/icon.svg" id="3_d7j2g"]
 [ext_resource type="PackedScene" uid="uid://bhry3q3l5w57w" path="res://assets/GameObjects/BichoSuelo1/bicho_suelo_1.tscn" id="4_dwccm"]
@@ -228,6 +229,18 @@ size = Vector2(61.5, 83.5)
 [node name="HUD2" type="CanvasLayer" parent="." unique_id=263832859]
 
 [node name="HudLifes" parent="HUD2" unique_id=55930602 node_paths=PackedStringArray("player") instance=ExtResource("1_naort")]
+player = NodePath("../../Player")
+
+[node name="HUD_Geo" parent="HUD2" unique_id=2075302762 node_paths=PackedStringArray("player") instance=ExtResource("2_0ub6i")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 25.0
+offset_top = 155.0
+offset_right = 25.0
+offset_bottom = 155.0
+grow_horizontal = 1
+grow_vertical = 1
 player = NodePath("../../Player")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1950828920]

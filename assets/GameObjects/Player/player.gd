@@ -1,11 +1,14 @@
 class_name Player extends CharacterBody2D
 
+var geo = 0
+
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -200.0
 @export var KNOCKBACK_STRENGTH = 100.0
 @export var POGO_STRENGTH = 250.0
 
 @onready var health_controller: HealthController = $HealthController
+signal geoCollected(totalGeo: int)
 
 const ATTACK_LEFT = preload("uid://vc68yhltylc4")
 const ATTACK_RIGHT = preload("uid://bfp3eugthmg5o")
@@ -36,7 +39,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			last_dir_attacked = Vector2.UP
 			add_child(ATTACK_UP.instantiate(), true)
 		
-		# LEFTa
+		# LEFT
 		elif last_dir_looked < 0:
 			last_dir_attacked = Vector2.LEFT
 			add_child(ATTACK_LEFT.instantiate(), true)
@@ -70,8 +73,11 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 	
 	# Apply knockback once
-	if knockback_force != Vector2.ZERO:
+	if knockback_force != Vector2.ZERO and last_dir_attacked == Vector2.DOWN:
 		velocity.y = knockback_force.y
+		knockback_force = Vector2.ZERO
+	elif knockback_force != Vector2.ZERO:
+		velocity += knockback_force
 		knockback_force = Vector2.ZERO
 	
 	move_and_slide()
@@ -95,3 +101,10 @@ func kill():
 	print_debug("You ded :(")
 	position = Vector2(-110.0, -2.0)
 	health_controller.heal_full()
+
+
+func _on_collection_area_body_entered(body: Node2D) -> void:
+	var detectedGeo: Geo = body
+	geo += detectedGeo.value
+	detectedGeo.collected()
+	geoCollected.emit(geo)
