@@ -69,3 +69,5 @@ max_distance = 450.0
 attenuation = 2.46
 bus = &"Monsters movement"
 parameters/looping = true
+
+[connection signal="died" from="HealthController" to="." method="_on_health_controller_died"]

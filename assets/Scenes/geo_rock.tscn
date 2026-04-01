@@ -19,7 +19,7 @@ func drop_geo(times: int) -> void:
 	for i in times:
 		var geo = GEO.instantiate() as RigidBody2D
 		get_tree().current_scene.add_child(geo)
-		geo. global_position = global_position
+		geo.global_position = global_position
 		geo_left -= 1
 
 func _on_colision_area_area_entered(_area: Area2D) -> void:

@@ -94,3 +94,5 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DelimiterArea2D2" unique_id=1691294764]
 shape = SubResource("RectangleShape2D_wxbfp")
+
+[connection signal="died" from="HealthController" to="." method="_on_health_controller_died"]

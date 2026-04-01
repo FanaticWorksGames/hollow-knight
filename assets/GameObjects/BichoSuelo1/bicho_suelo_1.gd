@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var delimiter_area_2d: Area2D = $DelimiterArea2D
 @onready var delimiter_area_2d_2: Area2D = $DelimiterArea2D2
 
+const GEO = preload("uid://4v3gvawys33e")
+var geoCout = 4
+
 var direction: String = 'left'
 
 func _ready() -> void:
@@ -15,6 +18,12 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	walk()
+
+func drop_geo() -> void:
+	for i in geoCout:
+		var geo = GEO.instantiate() as RigidBody2D
+		get_tree().current_scene.add_child(geo)
+		geo.global_position = global_position
 
 func walk():
 	var displacement = speed
@@ -36,3 +45,7 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 	else:
 		direction = 'left'
 		animated_sprite_2d.flip_h = false
+
+
+func _on_health_controller_died() -> void:
+	call_deferred("drop_geo")
