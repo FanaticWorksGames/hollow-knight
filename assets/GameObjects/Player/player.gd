@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody2D
 
 var geo = 0
+var soul = 0
+@export var soul_per_hit = 3
 
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -200.0
@@ -9,6 +11,7 @@ var geo = 0
 
 @onready var health_controller: HealthController = $HealthController
 signal geoCollected(totalGeo: int)
+signal soulUpdated(soulAmount: int)
 
 const ATTACK_LEFT = preload("uid://vc68yhltylc4")
 const ATTACK_RIGHT = preload("uid://bfp3eugthmg5o")
@@ -85,6 +88,12 @@ func _physics_process(delta: float) -> void:
 func _get_damage(_damage: int):
 	prints("Player damaged. Life left: ", health_controller.health)
 	knock_back()
+
+func getSoul() -> void:
+	soul += soul_per_hit
+	if soul > 30:
+		soul = 30
+	soulUpdated.emit(soul)
 
 func knock_back():
 	var strength = KNOCKBACK_STRENGTH

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://3hbw7m6rsvsm"]
+
+[ext_resource type="Script" uid="uid://jj1eokhmm3pm" path="res://hud_soul.gd" id="1_xi786"]
+[ext_resource type="Texture2D" uid="uid://cfn1aotw4xfvj" path="res://assets/Sprites/Soul.png" id="2_q0te2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2opr"]
+atlas = ExtResource("2_q0te2")
+region = Rect2(54, 55, 191, 191)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exo8g"]
+atlas = ExtResource("2_q0te2")
+region = Rect2(654, 55, 191, 191)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32qju"]
+atlas = ExtResource("2_q0te2")
+region = Rect2(354, 55, 191, 191)
+
+[node name="Control" type="Control" unique_id=754688365]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xi786")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=545343479]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 30.0
+step = 0.1
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_n2opr")
+texture_over = SubResource("AtlasTexture_exo8g")
+texture_progress = SubResource("AtlasTexture_32qju")

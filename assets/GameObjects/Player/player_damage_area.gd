@@ -9,6 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 		health_controller.receive_damage(4)
 	
 	player.knock_back()
+	player.getSoul()
 	
 	set_collision_layer_value(3, false) # Enemy
 	set_collision_layer_value(5, false) # Wall
