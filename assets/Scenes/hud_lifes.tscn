@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://c2sftl8iti3md"]
 
-[ext_resource type="Texture2D" uid="uid://cbjukl5mee370" path="res://assets/Sprites/icon.svg" id="1_3set5"]
 [ext_resource type="Script" uid="uid://bmp6p5d7cng" path="res://assets/Scenes/hud_lifes.gd" id="1_ndvy8"]
+[ext_resource type="Texture2D" uid="uid://bwxf2m8apohot" path="res://assets/Sprites/life.png" id="2_qapme"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h4q3p"]
-atlas = ExtResource("1_3set5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_acapv"]
+atlas = ExtResource("2_qapme")
+region = Rect2(7, 25, 86, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xitaf"]
+atlas = ExtResource("2_qapme")
+region = Rect2(107, 25, 86, 100)
 
 [node name="HudLifes" type="Control" unique_id=40113851 node_paths=PackedStringArray("lifes")]
 layout_mode = 3
 anchor_right = 0.3706597
 anchor_bottom = 0.2361111
 script = ExtResource("1_ndvy8")
-lifes = [NodePath("MarginContainer/HBoxContainer/Life_1"), NodePath("MarginContainer/HBoxContainer/Life_2"), NodePath("MarginContainer/HBoxContainer/Life_3")]
+lifes = [NodePath("MarginContainer/HBoxContainer/Life_1"), NodePath("MarginContainer/HBoxContainer/Life_2"), NodePath("MarginContainer/HBoxContainer/Life_3"), NodePath("MarginContainer/HBoxContainer/Life_4"), NodePath("MarginContainer/HBoxContainer/Life_5"), NodePath("MarginContainer/HBoxContainer/Life_6"), NodePath("MarginContainer/HBoxContainer/Life_7"), NodePath("MarginContainer/HBoxContainer/Life_8"), NodePath("MarginContainer/HBoxContainer/Life_9")]
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=58354480]
@@ -27,20 +32,68 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=55930602]
 layout_mode = 2
-theme_override_constants/separation = 9
+theme_override_constants/separation = 40
 metadata/_edit_use_anchors_ = true
 
-[node name="Life_1" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1021061954]
+[node name="Life_1" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1925713553]
 layout_mode = 2
-texture = SubResource("AtlasTexture_h4q3p")
-stretch_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
 
-[node name="Life_2" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=382950532]
+[node name="Life_2" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=668894658]
 layout_mode = 2
-texture = SubResource("AtlasTexture_h4q3p")
-stretch_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
 
-[node name="Life_3" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1375093677]
+[node name="Life_3" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=2112186640]
 layout_mode = 2
-texture = SubResource("AtlasTexture_h4q3p")
-stretch_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
+
+[node name="Life_4" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1523262205]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
+
+[node name="Life_5" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=28930724]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
+
+[node name="Life_6" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=779072279]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
+
+[node name="Life_7" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=288189473]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
+
+[node name="Life_8" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=958183134]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")
+
+[node name="Life_9" type="TextureProgressBar" parent="MarginContainer/HBoxContainer" unique_id=683769093]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = SubResource("AtlasTexture_acapv")
+texture_progress = SubResource("AtlasTexture_xitaf")

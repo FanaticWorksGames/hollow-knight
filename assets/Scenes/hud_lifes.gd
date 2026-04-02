@@ -1,9 +1,10 @@
 class_name HudLifes extends Control
 
 @export var player: Player
-@export var lifes: Array[TextureRect]
+@export var lifes: Array[TextureProgressBar]
 
 func _ready() -> void:
+	update_hud(5, 5)
 	if not player.is_node_ready():
 		player.ready.connect(_connect_player)
 		return
@@ -11,14 +12,17 @@ func _ready() -> void:
 	_connect_player()
 
 func _connect_player():
-	player.health_controller.damage_received.connect(remove_lifes)
-	player.health_controller.healed.connect(show_lifes)
+	player.health_controller.healed.connect(update_hud)
 
-func remove_lifes(_amount: int):
-	for i in range(lifes.size()):
-		if i > player.health_controller.health - 1:
-			lifes[i].hide()
-
-func show_lifes():
-	for i in range(player.health_controller.health):
-		lifes[i].show()
+func update_hud(health: int, maxHealth: int) -> void:
+	var i = 1
+	for life in lifes:
+		if i <= maxHealth:
+			life.show()
+		else:
+			life.hide()
+		if i <= health:
+			life.value = 1
+		else:
+			life.value = 0
+		i += 1

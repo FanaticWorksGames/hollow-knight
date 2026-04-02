@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3hbw7m6rsvsm"]
 
 [ext_resource type="Script" uid="uid://jj1eokhmm3pm" path="res://hud_soul.gd" id="1_xi786"]
+[ext_resource type="Texture2D" uid="uid://bxadfoyfl68r6" path="res://assets/Sprites/soulDetail.png" id="2_n2opr"]
 [ext_resource type="Texture2D" uid="uid://cfn1aotw4xfvj" path="res://assets/Sprites/Soul.png" id="2_q0te2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n2opr"]
@@ -24,10 +25,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xi786")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=742926336]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -53.0
+offset_right = 546.0
+offset_bottom = 247.0
+texture = ExtResource("2_n2opr")
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=545343479]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 191.0
+offset_bottom = 191.0
 max_value = 30.0
 step = 0.1
 fill_mode = 3

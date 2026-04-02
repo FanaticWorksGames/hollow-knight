@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 var geo = 0
 var soul = 0
+@export var max_soul = 30
 @export var soul_per_hit = 3
 
 @export var SPEED = 150.0
@@ -30,6 +31,11 @@ func _ready() -> void:
 	health_controller.died.connect(kill)
 
 func _unhandled_input(_event: InputEvent) -> void:
+	#HEAL
+	if Input.is_action_just_pressed("heal") and is_on_floor() and soul >= 10:
+		soul -= 10
+		soulUpdated.emit(soul)
+		health_controller.heal(1)
 	# Attack
 	if Input.is_action_just_pressed("ui_attack"):
 		# DOWN (POGO)
@@ -91,8 +97,8 @@ func _get_damage(_damage: int):
 
 func getSoul() -> void:
 	soul += soul_per_hit
-	if soul > 30:
-		soul = 30
+	if soul > max_soul:
+		soul = max_soul
 	soulUpdated.emit(soul)
 
 func knock_back():

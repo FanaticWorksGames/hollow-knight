@@ -229,23 +229,14 @@ size = Vector2(61.5, 83.5)
 
 [node name="HUD2" type="CanvasLayer" parent="." unique_id=263832859]
 
-[node name="HudLifes" parent="HUD2" unique_id=55930602 node_paths=PackedStringArray("player") instance=ExtResource("1_naort")]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 221.0
-offset_top = 37.0
-offset_right = 221.0
-offset_bottom = 37.0
-player = NodePath("../../Player")
-
 [node name="HUD_Geo" parent="HUD2" unique_id=2075302762 node_paths=PackedStringArray("player") instance=ExtResource("2_0ub6i")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 47.0
-offset_top = 218.0
-offset_right = 47.0
-offset_bottom = 218.0
+offset_left = 224.04
+offset_top = 158.315
+offset_right = 224.04
+offset_bottom = 158.315
 grow_horizontal = 1
 grow_vertical = 1
 player = NodePath("../../Player")
@@ -255,11 +246,21 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 15.0
-offset_top = 12.0
+offset_top = 40.0
 offset_right = 15.0
-offset_bottom = 12.0
+offset_bottom = 40.0
 grow_horizontal = 1
 grow_vertical = 1
+player = NodePath("../../Player")
+
+[node name="HudLifes" parent="HUD2" unique_id=55930602 node_paths=PackedStringArray("player") instance=ExtResource("1_naort")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 221.0
+offset_top = 37.0
+offset_right = 221.0
+offset_bottom = 37.0
 player = NodePath("../../Player")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1950828920]
