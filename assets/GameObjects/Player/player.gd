@@ -14,10 +14,12 @@ var soul = 0
 signal geoCollected(totalGeo: int)
 signal soulUpdated(soulAmount: int)
 
+@onready var attack_timer: Timer = $AttackTimer
 const ATTACK_LEFT = preload("uid://vc68yhltylc4")
 const ATTACK_RIGHT = preload("uid://bfp3eugthmg5o")
 const ATTACK_UP = preload("uid://de7hmjxjkjirs")
 const ATTACK_POGO = preload("uid://bpvgfb6hih3o1")
+var can_attack = true
 
 var last_dir_looked: int = 1 # -1 LEFT / 1 RIGHT
 var last_dir_attacked: Vector2 = Vector2.RIGHT
@@ -37,7 +39,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 		soulUpdated.emit(soul)
 		health_controller.heal(1)
 	# Attack
-	if Input.is_action_just_pressed("ui_attack"):
+	if Input.is_action_just_pressed("ui_attack") and can_attack:
+		attack_timer.start()
+		can_attack = false
 		# DOWN (POGO)
 		if Input.is_action_pressed("ui_down") and not is_on_floor():
 			last_dir_attacked = Vector2.DOWN
@@ -123,3 +127,7 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 	geo += detectedGeo.value
 	detectedGeo.collected()
 	geoCollected.emit(geo)
+
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true
