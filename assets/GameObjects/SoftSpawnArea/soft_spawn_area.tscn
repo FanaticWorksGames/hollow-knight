@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://clm4xnicaq03c"]
+
+[ext_resource type="Script" uid="uid://cjoum38w4li7o" path="res://assets/GameObjects/SoftSpawnArea/soft_spawn_area.gd" id="1_nrwdm"]
+
+[node name="SoftSpawnArea" type="Area2D" unique_id=1547110533]
+collision_layer = 0
+script = ExtResource("1_nrwdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1345524331]

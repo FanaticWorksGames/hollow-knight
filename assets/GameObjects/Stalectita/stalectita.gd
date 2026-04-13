@@ -12,7 +12,6 @@ func _on_detection_area_body_entered(_body: Node2D):
 
 func _on_damage_area_body_entered(body: Node2D):
 	if body is TileMapLayer:
-		print("FREEZE")
 		call_deferred("freeze_stalactita")
 
 func freeze_stalactita():

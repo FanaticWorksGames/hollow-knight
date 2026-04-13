@@ -1,24 +1,33 @@
 class_name Player extends CharacterBody2D
 
-var geo = 0
-var soul = 0
+const ATTACK_LEFT = preload("uid://vc68yhltylc4")
+const ATTACK_RIGHT = preload("uid://bfp3eugthmg5o")
+const ATTACK_UP = preload("uid://de7hmjxjkjirs")
+const ATTACK_POGO = preload("uid://bpvgfb6hih3o1")
+
+@export_group("HUD")
 @export var max_soul = 30
 @export var soul_per_hit = 3
 
+@export_group("Spawns")
+@export var _hard_spawn_point: Vector2 = Vector2(-110.0, -2.0)
+@export var _soft_spawn_point: Vector2 = _hard_spawn_point
+
+@export_group("Movement")
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -200.0
 @export var KNOCKBACK_STRENGTH = 100.0
 @export var POGO_STRENGTH = 250.0
 
 @onready var health_controller: HealthController = $HealthController
+@onready var attack_timer: Timer = $AttackTimer
+
 signal geoCollected(totalGeo: int)
 signal soulUpdated(soulAmount: int)
 
-@onready var attack_timer: Timer = $AttackTimer
-const ATTACK_LEFT = preload("uid://vc68yhltylc4")
-const ATTACK_RIGHT = preload("uid://bfp3eugthmg5o")
-const ATTACK_UP = preload("uid://de7hmjxjkjirs")
-const ATTACK_POGO = preload("uid://bpvgfb6hih3o1")
+var geo = 0
+var soul = 0
+
 var can_attack = true
 
 var last_dir_looked: int = 1 # -1 LEFT / 1 RIGHT
@@ -118,16 +127,28 @@ func knock_back():
 
 func kill():
 	print_debug("You ded :(")
-	position = Vector2(-110.0, -2.0)
+	knockback_force = Vector2.ZERO
+	velocity = Vector2.ZERO
+	position = _hard_spawn_point
 	health_controller.heal_full()
 
+func soft_respawn():
+	knockback_force = Vector2.ZERO
+	velocity = Vector2.ZERO
+	position = _soft_spawn_point
+
+func set_hard_spawn_point(spawn_point: Vector2):
+	_hard_spawn_point = spawn_point
+
+func set_soft_spawn_point(spawn_point: Vector2):
+	print(spawn_point)
+	_soft_spawn_point = spawn_point
 
 func _on_collection_area_body_entered(body: Node2D) -> void:
 	var detectedGeo: Geo = body
 	geo += detectedGeo.value
 	detectedGeo.collected()
 	geoCollected.emit(geo)
-
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
