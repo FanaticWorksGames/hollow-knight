@@ -23,7 +23,7 @@ region_enabled = true
 region_rect = Rect2(71, 256, 141, 188)
 
 [node name="PlayerDamageArea" parent="Sprite2D" unique_id=355654562 instance=ExtResource("2_hkjyj")]
-collision_mask = 4
+collision_mask = 132
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/PlayerDamageArea" unique_id=1454351964]
 position = Vector2(20, -6.6666718)

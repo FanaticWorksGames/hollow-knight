@@ -7,7 +7,8 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if health_controller:
 		health_controller.receive_damage(4)
-		player.getSoul()
+		if "getSoulTrue" in body:
+			player.getSoul()
 	
 	player.knock_back()
 	

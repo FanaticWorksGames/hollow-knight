@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var health_controller: HealthController = $HealthController
 @onready var delimiter_area_2d: Area2D = $DelimiterArea2D
 @onready var delimiter_area_2d_2: Area2D = $DelimiterArea2D2
+const getSoulTrue = true
 
 const GEO = preload("uid://4v3gvawys33e")
 var geoCout = 4

@@ -91,6 +91,7 @@ heal={
 2d_physics/layer_5="Wall"
 2d_physics/layer_6="Delimiter"
 2d_physics/layer_7="Geo"
+2d_physics/layer_8="Breakable"
 
 [physics]
 

@@ -23,6 +23,7 @@ region_enabled = true
 region_rect = Rect2(17, 15, 303, 178)
 
 [node name="DamageArea" parent="Sprite2D" unique_id=355654562 instance=ExtResource("2_u52hr")]
+collision_mask = 148
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Sprite2D/DamageArea" unique_id=77451076]
 visible = false

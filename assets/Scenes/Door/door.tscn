@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bnjswdyasytx8"]
+
+[ext_resource type="Texture2D" uid="uid://dtk4ql7ie5ak8" path="res://assets/Sprites/Door.png" id="1_76ouc"]
+
+[sub_resource type="GDScript" id="GDScript_12qii"]
+script/source = "class_name Door extends Node2D
+
+
+func _on_area_2d_area_entered(_area: Area2D) -> void:
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmemy"]
+size = Vector2(153, 429)
+
+[node name="Door" type="Node2D" unique_id=31577592]
+script = SubResource("GDScript_12qii")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1122920540]
+position = Vector2(1, 0)
+texture = ExtResource("1_76ouc")
+offset = Vector2(0, -209.22)
+region_enabled = true
+region_rect = Rect2(14, 44, 164, 430)
+
+[node name="RigidBody2D" type="StaticBody2D" parent="." unique_id=566825227]
+visible = false
+position = Vector2(1.4999962, -211.5)
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=705704892]
+shape = SubResource("RectangleShape2D_nmemy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1376005798]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=163654080]
+visible = false
+position = Vector2(1.4999962, -211.5)
+shape = SubResource("RectangleShape2D_nmemy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -13,7 +13,7 @@ func _on_timeout() -> void:
 
 [node name="AttackUp" type="Marker2D" unique_id=1970116816]
 scale = Vector2(0.15, 0.15)
-gizmo_extents = 27.5
+gizmo_extents = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1907452460]
 position = Vector2(-20, -130)
@@ -23,6 +23,7 @@ region_enabled = true
 region_rect = Rect2(295, 274, 149, 173)
 
 [node name="PlayerDamageArea" parent="Sprite2D" unique_id=355654562 instance=ExtResource("2_c77ds")]
+collision_mask = 148
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/PlayerDamageArea" unique_id=1653275139]
 position = Vector2(20, -6.6666565)
