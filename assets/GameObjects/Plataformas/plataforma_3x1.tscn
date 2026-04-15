@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dxstfulbh4rx8"]
+
+[ext_resource type="Texture2D" uid="uid://dmdh25rnsesdd" path="res://assets/Sprites/Plataformas/plataforma_3x1.png" id="1_2fmkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fmkp"]
+size = Vector2(151, 43)
+
+[node name="Plataforma3x1" type="StaticBody2D" unique_id=1511144652]
+z_index = 1
+scale = Vector2(0.35, 0.35)
+collision_layer = 16
+collision_mask = 0
+
+[node name="PlataformaLarga1" type="Sprite2D" parent="." unique_id=1524402525]
+texture = ExtResource("1_2fmkp")
+region_enabled = true
+region_rect = Rect2(21, 54, 155, 52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=512055225]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_2fmkp")
